@@ -1,6 +1,5 @@
 "use client"
 import { FlyingSaucer } from "@phosphor-icons/react/dist/ssr"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 const Page = () => {
