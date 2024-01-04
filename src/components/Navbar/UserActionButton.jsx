@@ -11,7 +11,7 @@ const UserActionButton = async () => {
             {user ?
                 // <Link href="/api/auth/signout" className="">Sign Out</Link>
                 <Link href="/users/dashboard">
-                    <Image src={user.image} className='rounded-full bg-zinc-800 h-14 w-14' width={150} height={150}/>
+                    <Image unoptimized src={user.image} className='rounded-full bg-zinc-800 h-14 w-14' width={150} height={150}/>
                 </Link>
                 
                 :

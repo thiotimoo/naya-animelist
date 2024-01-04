@@ -40,11 +40,11 @@ const Page = async ({ params: { id } }) => {
 
     return (
         <div className="flex min-w-full flex-col gap-2 md:flex-row ">
-            <div className="m-auto flex w-full flex-col gap-4 md:m-0 md:w-72 md:px-0  px-6">
+            <div className="m-auto flex w-full flex-col gap-4 px-6 md:m-0 md:w-72  md:px-0">
                 <div className="flex items-center justify-center">
                     <Image
+                        unoptimized
                         className="max-h-full max-w-full rounded-2xl object-contain"
-                        loading="lazy"
                         alt={anime.data.title}
                         src={anime.data.images.webp.large_image_url}
                         width={288}
@@ -69,7 +69,7 @@ const Page = async ({ params: { id } }) => {
                         initial={collectionDatabase}
                     />
                 ) : (
-                    <p className="rounded-2xl bg-primary text-black px-4 py-2 italic">
+                    <p className="rounded-2xl bg-primary px-4 py-2 italic text-black">
                         {collectionError}
                     </p>
                 )}
@@ -128,23 +128,23 @@ const Page = async ({ params: { id } }) => {
                         {anime.data?.genres.map((genre, index) => {
                             if (index == anime.data?.genres?.length - 1)
                                 return (
-                                        <Link
-                                            className="duration-y text-body transition-all hover:text-primary"
-                                            href={genre.url}
-                                            key={genre.mal_id}
-                                        >
-                                            {genre.name}
-                                        </Link>
-                                );
-                            return (
                                     <Link
                                         className="duration-y text-body transition-all hover:text-primary"
                                         href={genre.url}
                                         key={genre.mal_id}
                                     >
                                         {genre.name}
-                                        <span>, </span>
                                     </Link>
+                                );
+                            return (
+                                <Link
+                                    className="duration-y text-body transition-all hover:text-primary"
+                                    href={genre.url}
+                                    key={genre.mal_id}
+                                >
+                                    {genre.name}
+                                    <span>, </span>
+                                </Link>
                             );
                         })}
                     </div>
@@ -154,8 +154,16 @@ const Page = async ({ params: { id } }) => {
                             .split("\n")
                             .map((paragraph, index) => {
                                 if (index == 0)
-                                    return <p key={index} className="mt-0">{paragraph}</p>;
-                                return <p key={index} className="mt-6">{paragraph}</p>;
+                                    return (
+                                        <p key={index} className="mt-0">
+                                            {paragraph}
+                                        </p>
+                                    );
+                                return (
+                                    <p key={index} className="mt-6">
+                                        {paragraph}
+                                    </p>
+                                );
                             })}
                     </div>
                 </div>

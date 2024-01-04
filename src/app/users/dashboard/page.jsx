@@ -42,7 +42,7 @@ const Page = async () => {
                 <div className="flex items-center justify-center">
                     <Image
                         className="bg aspect-square w-full rounded-2xl object-contain"
-                        loading="lazy"
+                        unoptimized
                         alt={user.name}
                         src={user.image}
                         width={288}
