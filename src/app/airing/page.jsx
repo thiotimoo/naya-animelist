@@ -4,7 +4,7 @@ import React from 'react'
 
 const Page = () => {
   return (
-    <AnimePage title="Top Airing Animes"/>
+    <AnimePage title="Top Airing Animes" extraQuery="filter=airing"/>
   )
 }
 
